@@ -113,6 +113,19 @@ void D6::setInterval(long start_freq, long step_width, int number_of_samples, in
     }
 }
 
+#if 0
+double adc2dB(int16_t adc_val)
+{
+    double calx = 0.19;
+    double caly = -87.0;
+
+    double level = adc_val * calx + caly;
+    double freq_adjust = 0.;    // freqencyAdjustmen(freq)
+    level -= freq_adjust;
+    return level;
+}
+#endif
+
 void D6::sweep()
 {
     // After testing, with the firmware installed in the D6 as it came, only logarithmic modes 'a', 'c' and 'x' seem to work

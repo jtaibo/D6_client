@@ -27,7 +27,24 @@ private slots:
 
     void on_continuousScanButton_clicked();
 
+    void on_maxLevel_valueChanged(double arg1);
+
+    void on_minLevel_valueChanged(double arg1);
+
+    void on_startFreqComboBox_currentIndexChanged(int index);
+
+    void on_centerFreq_editingFinished();
+
+    void on_startFreq_editingFinished();
+
+    void on_spanFreq_editingFinished();
+
+    void on_endFreq_editingFinished();
+
 private:
+
+    bool _init;
+
     Ui::MainWindow *_ui;
     D6 _d6;
 
@@ -35,5 +52,11 @@ private:
 
     bool _continuousScanning;
     void doScan();
+
+    void setupInitialRangeValues();
+    void updateHorizontalRange();
+    void updateVerticalRange();
+    void setStepSize(double step_size);
+    void recomputeStepSize();
 };
 #endif // MAINWINDOW_H
